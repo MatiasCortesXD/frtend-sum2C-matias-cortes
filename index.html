@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BuenSabor - Restaurante y Catering</title>
+  <title>Solicitud de Reserva o Catering - BuenSabor</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,66 +12,95 @@
     <nav>
       <div class="logo">BuenSabor</div>
       <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#menu">Menú</a></li>
-        <li><a href="#catering">Catering</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="solicitud.html">Solicitar</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#formulario">Formulario</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Sección Hero -->
-  <section id="hero" class="hero">
-    <div class="hero-overlay">
-      <h1>BuenSabor</h1>
-      <p>Descubre el arte de la gastronomía y el catering</p>
-      <div class="hero-buttons">
-        <a href="#menu" class="btn">Ver Menú</a>
-        <a href="solicitud.html" class="btn">Solicitar Reserva o Catering</a>
-      </div>
-    </div>
-  </section>
+  <!-- Sección Formulario -->
+  <main>
+    <section id="formulario" class="formulario">
+      <h1>Solicitud de Reserva o Catering</h1>
+      <form action="#" method="POST">
+        <!-- Sección A: Tipo de Solicitud y Datos del Evento -->
+        <fieldset>
+          <legend>Tipo de Solicitud y Datos del Evento</legend>
+          <label>
+            <input type="radio" name="tipo_solicitud" value="reserva" required>
+            Reserva de mesa en el salón
+          </label>
+          <label>
+            <input type="radio" name="tipo_solicitud" value="catering">
+            Servicio de catering externo
+          </label>
+          <label for="fecha">Fecha del evento o reserva *</label>
+          <input type="date" id="fecha" name="fecha" required>
+          <label for="hora">Hora de inicio *</label>
+          <input type="time" id="hora" name="hora" required>
+          <label for="duracion">Duración estimada del evento</label>
+          <select id="duracion" name="duracion">
+            <option value="">Seleccione...</option>
+            <option value="1">1 hora</option>
+            <option value="2">2 horas</option>
+            <option value="3">3 horas</option>
+            <option value="4">4 horas o más</option>
+          </select>
+        </fieldset>
 
-  <!-- Sección Menú Destacado -->
-  <section id="menu" class="menu">
-    <h2>Menú Destacado</h2>
-    <div class="menu-grid">
-      <!-- Ejemplo de tarjeta de plato -->
-      <div class="menu-item">
-        <img src="assets/images/plato1.jpg" alt="Plato 1">
-        <h3>Plato 1</h3>
-        <p>Descripción breve del plato.</p>
-        <span class="price">$1000</span>
-        <span class="badge">Vegano</span>
-      </div>
-      <!-- Agregar más platos aquí -->
-    </div>
-  </section>
+        <!-- Sección B: Datos de los Comensales -->
+        <fieldset>
+          <legend>Datos de los Comensales</legend>
+          <label for="adultos">Cantidad de adultos *</label>
+          <input type="number" id="adultos" name="adultos" min="1" max="200" required>
+          <label for="menores">Cantidad de menores</label>
+          <input type="number" id="menores" name="menores" min="0" max="50">
+          <label>Restricciones alimentarias</label>
+          <label><input type="checkbox" name="restricciones" value="vegetarianos"> Vegetarianos</label>
+          <label><input type="checkbox" name="restricciones" value="veganos"> Veganos</label>
+          <label><input type="checkbox" name="restricciones" value="sin_tacc"> Sin TACC</label>
+          <label><input type="checkbox" name="restricciones" value="otras"> Otras</label>
+        </fieldset>
 
-  <!-- Sección Servicios de Catering -->
-  <section id="catering" class="catering">
-    <h2>Servicios de Catering</h2>
-    <div class="catering-grid">
-      <!-- Ejemplo de servicio -->
-      <div class="catering-item">
-        <img src="assets/images/catering1.jpg" alt="Catering 1">
-        <h3>Casamientos y Fiestas</h3>
-        <p>Servicio para hasta 200 personas.</p>
-      </div>
-      <!-- Agregar más servicios aquí -->
-    </div>
-  </section>
+        <!-- Sección C: Datos del Cliente -->
+        <fieldset>
+          <legend>Datos del Cliente</legend>
+          <label for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre" required>
+          <label for="email">Correo electrónico *</label>
+          <input type="email" id="email" name="email" required>
+          <label for="telefono">Teléfono de contacto *</label>
+          <input type="tel" id="telefono" name="telefono" required>
+        </fieldset>
 
-  <!-- Sección Nuestro Chef -->
-  <section id="nosotros" class="chef">
-    <h2>Nuestro Chef</h2>
-    <div class="chef-info">
-      <img src="assets/images/chef.jpg" alt="Chef">
-      <h3>Juan Pérez</h3>
-      <p>Especialista en cocina internacional con más de 20 años de experiencia.</p>
-    </div>
-  </section>
+        <!-- Sección D: Observaciones y Confirmación -->
+        <fieldset>
+          <legend>Observaciones y Confirmación</legend>
+          <label for="observaciones">Observaciones o pedidos especiales</label>
+          <textarea id="observaciones" name="observaciones" maxlength="350"></textarea>
+          <label>
+            <input type="checkbox" name="acepta_contacto" required>
+            Acepto que BuenSabor se contacte para confirmar disponibilidad
+          </label>
+          <label>
+            <input type="checkbox" name="terminos" required>
+            Acepto los Términos y Condiciones
+          </label>
+          <label>
+            <input type="checkbox" name="privacidad" required>
+            Acepto la Política de Privacidad
+          </label>
+        </fieldset>
+
+        <!-- Botones -->
+        <div class="form-buttons">
+          <button type="submit">Enviar solicitud</button>
+          <button type="reset">Limpiar</button>
+          <a href="index.html">Volver al inicio</a>
+        </div>
+      </form>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
